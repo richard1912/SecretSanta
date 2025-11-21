@@ -99,7 +99,6 @@ The app is configured to run on `0.0.0.0:8003` using Docker:
 
 - Uses file-based storage with automatic backups
 - Parties and assignments persist between server restarts
-- For production, consider adding a database (MongoDB, PostgreSQL, etc.)
 - The assignment algorithm ensures no one gets themselves
 - All assignments are generated once per party and cached
 
