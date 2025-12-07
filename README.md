@@ -1,105 +1,39 @@
-# Secret Santa Web App
+# Secret Santa
 
-A festive Secret Santa party organizer with Christmas theme and snow animations.
+A secure Secret Santa organizer with **end-to-end encryption** — not even the host can see anyone's assignments.
 
-## Preview
+## How to Use
 
-![Secret Santa App Screenshot](public/screenshot.png)
+1. **Host creates a room** with a room name and credentials
+2. **Share the room link** with participants
+3. **Participants register** with their own username and password
+4. **Host starts the room** once everyone has joined
+5. **Everyone logs in** to see their secret assignment (fully encrypted)
 
-## Features
+## Quick Start
 
-- Create Secret Santa parties with custom rules
-- Automatic random assignment with no double-ups
-- Set budget limits and gift criteria
-- Secure unique guest links (no snooping!)
-- Beautiful Christmas theme with snow animations
-- Docker deployment ready
+1. **Copy the environment file:**
+   ```bash
+   cp .env.example .env
+   ```
 
-## Configuration
+2. **Run the app:**
 
-Create a `.env` file with your settings:
-
-```env
-# Server port (default: 8003)
-PORT=8003
-
-# Base URL for generating guest links
-# For local development:
-BASE_URL=http://localhost:8003
-# For production deployment:
-BASE_URL=https://your-domain.com
-```
-
-**Important:** Set `BASE_URL` to your production domain when deploying, as this URL is used to generate the guest invitation links.
-
-## Quick Start with Docker
-
-1. **Build and run with Docker Compose:**
+   **With Docker:**
    ```bash
    docker-compose up --build
    ```
 
-2. **Access the app:**
-   - Local URL: `http://localhost:8003`
-
-## Manual Installation
-
-1. **Install dependencies:**
+   **Without Docker:**
    ```bash
    npm install
-   ```
-
-2. **Start the server:**
-   ```bash
    npm start
    ```
 
-3. **For development:**
-   ```bash
-   npm run dev
-   ```
+3. **Visit** `http://localhost:8003`
 
-## Usage
+## Security
 
-1. **Create a Party:**
-   - Visit the main page
-   - Enter party name, budget (optional), and criteria (optional)
-   - Add guest names (minimum 2, include yourself if participating!)
-   - Click "Create Secret Santa Party"
+All assignments are **encrypted client-side** before being sent to the server. Each participant's assignment is encrypted with their unique credentials, so only they can decrypt it. The server and host never see the plaintext assignments.
 
-2. **Share with Guests:**
-   - Copy the individual personal links for each guest
-   - Each person gets their own unique link
-   - The party creator uses their personal link just like everyone else
-
-3. **Guest Participation:**
-   - Each person visits their unique personal link
-   - They immediately see who they're buying a gift for
-   - Assignments are kept secret and secure!
-
-## Technology Stack
-
-- **Backend:** Node.js with Express
-- **Frontend:** HTML5, CSS3, JavaScript, Tailwind CSS
-- **Styling:** Christmas theme with custom animations
-- **Deployment:** Docker & Docker Compose
-- **Data Storage:** In-memory (for demo purposes)
-
-## Docker Deployment
-
-The app is configured to run on `0.0.0.0:8003` using Docker:
-
-- **Port:** 8003
-- **Container Name:** secret-santa-app
-- **Restart Policy:** unless-stopped
-
-**For Production:** Update the `BASE_URL` environment variable in `docker-compose.yml` to your actual domain before deploying.
-
-## Notes
-
-- Uses file-based storage with automatic backups
-- Parties and assignments persist between server restarts
-- The assignment algorithm ensures no one gets themselves
-- All assignments are generated once per party and saved
-
-## Merry Christmas! 🎅🎄❄️
+🎅🎄 Merry Christmas!

@@ -1,0 +1,36 @@
+{
+	"name": "Secret Santa - Node.js",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "secret-santa",
+	"workspaceFolder": "/app",
+	"overrideCommand": true,
+	"features": {
+		"ghcr.io/devcontainers/features/git:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": true,
+			"installOhMyZsh": true,
+			"configureZshAsDefaultShell": true,
+			"username": "node",
+			"upgradePackages": true
+		},
+		"ghcr.io/devcontainers/features/node:1": {
+			"version": "18"
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {},
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"esbenp.prettier-vscode"
+			]
+		}
+	},
+	"forwardPorts": [
+		8003
+	],
+	"postCreateCommand": "sudo chown -R node:node /app && npm install",
+	"remoteUser": "node"
+}
