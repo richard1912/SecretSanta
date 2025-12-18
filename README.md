@@ -8,7 +8,7 @@ A festive Secret Santa party organizer with Christmas theme and snow animations.
 
 ## Features
 
-- Create Secret Santa parties with custom rules
+- Create Secret Santa parties
 - Automatic random assignment with no double-ups
 - Set budget limits and gift criteria
 - Secure unique guest links (no snooping!)
